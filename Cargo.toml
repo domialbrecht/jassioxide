@@ -3,6 +3,24 @@ name = "jassioxide"
 version = "0.1.0"
 edition = "2021"
 
+[lib]
+path = "src/lib.rs"
+
+[[bin]]
+path = "src/bin/main.rs"
+name = "jassioxide"
+
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+socketioxide = "*"
+axum = "0.7.3"
+tokio = { version = "1.35.1", features = ["rt-multi-thread", "macros"] }
+tracing = "0.1.40"
+tracing-subscriber = "0.3.18"
+serde_json = "*"
+anyhow = "*"
+tower-http = { version = "0.5.0", features = ["trace"] }
+
+[dev-dependencies]
+tower = { version = "0.4", features = ["util"] }
