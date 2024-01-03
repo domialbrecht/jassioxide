@@ -1,7 +1,8 @@
 use jassioxide::run;
+use tracing_subscriber::FmtSubscriber;
 
 #[tracing::instrument]
 fn main() -> anyhow::Result<()> {
-    tracing_subscriber::fmt::init();
+    tracing::subscriber::set_global_default(FmtSubscriber::default())?;
     run()
 }
